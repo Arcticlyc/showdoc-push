@@ -100,7 +100,7 @@ class ShowDocPush:
         body = resp.json()
         if body.get("error_code") != 0:
             raise RuntimeError(body.get("error_message", "未知错误"))
-        return body["data"]
+        return body.get("data", True)
 
     # -----------------------
     # 属性
